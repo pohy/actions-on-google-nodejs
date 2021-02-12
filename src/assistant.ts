@@ -56,7 +56,9 @@ export interface BaseApp extends ServiceBaseApp {
 const create = (options?: AppOptions): BaseApp => ({
   frameworks: Object.assign({}, builtin),
   handler: () => Promise.reject(new Error('StandardHandler not set')),
+  // @ts-ignore
   use(plugin) {
+    // @ts-ignore
     return plugin(this) || this
   },
   debug: !!(options && options.debug),

@@ -20,9 +20,11 @@ import * as https from 'https'
 const name = 'actions-on-google'
 
 /** @hidden */
+// @ts-ignore
 export const debug = Debug(`${name}:debug`)
 
 /** @hidden */
+// @ts-ignore
 export const warn = Debug(`${name}:warn`)
 
 /** @hidden */

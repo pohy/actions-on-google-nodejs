@@ -336,6 +336,7 @@ const makeApiCall = (url: string, data: JsonObject, jwt?: SmartHomeJwt): Promise
         ['https://www.googleapis.com/auth/homegraph'],
         undefined,
       )
+      // @ts-ignore
       jwtClient.authorize((err: Error, tokens: JsonObject) => {
         if (err) {
           return reject(err)
@@ -393,12 +394,15 @@ export const smarthome: SmartHome = (options = {}) => attach<SmartHomeApp>({
     return this._intent('action.devices.SYNC', handler)
   },
   onQuery(this: SmartHomeApp, handler) {
+    // @ts-ignore
     return this._intent('action.devices.QUERY', handler)
   },
   onExecute(this: SmartHomeApp, handler) {
+    // @ts-ignore
     return this._intent('action.devices.EXECUTE', handler)
   },
   onDisconnect(this: SmartHomeApp, handler) {
+    // @ts-ignore
     return this._intent('action.devices.DISCONNECT', handler)
   },
   async requestSync(this: SmartHomeApp, agentUserId) {
@@ -425,6 +429,7 @@ export const smarthome: SmartHome = (options = {}) => attach<SmartHomeApp>({
   },
   key: options.key,
   jwt: options.jwt,
+  // @ts-ignore
   async handler(
     this: SmartHomeApp,
     body: Api.SmartHomeV1Request,
